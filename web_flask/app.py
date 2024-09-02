@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 import json
 from models import CO2Record
 import requests
+from route import *
 
 
 """create the app"""
@@ -46,7 +47,7 @@ def get_co2_records_by_range(start_date, end_date):
     } for record in records])
 
 
-@app.route('/api/co2/records/high-low/<start_date>/<end_date>', methods=['GET'])
+@app.route('/api/co2/records/highlow/<start_date>/<end_date>', methods=['GET'])
 def get_co2_high_low_by_range(start_date, end_date):
     """ Returns the highest and lowest record within a date range"""
     records = CO2Record.query.filter(
