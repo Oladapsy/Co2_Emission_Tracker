@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 import json
 from models import CO2Record
 import requests
-from route import *
+"""from routes import *"""
 
 
 """create the app"""
@@ -32,6 +32,15 @@ def get_co2_records():
         'date': record.date,
         'cycle': record.cycle,
         'trend': record.trend
+    } for record in records])
+
+
+@app.route('/api/co2/TodayCycleValue', strict_slashes=False, methods=['GET'])
+def get_co2_today_cycle_value():
+    """ Returns the cycle value of co2 today"""
+    records = CO2Record.query.order_by(CO2Record.date.desc()).limit(1).all()
+    return jsonify([{
+        'cycle': record.cycle,
     } for record in records])
 
 
