@@ -6,6 +6,8 @@ from flask_migrate import Migrate
 import json
 from models import CO2Record
 import requests
+from flask_cors import CORS
+from datetime import datetime, timedelta
 """from routes import *"""
 
 
@@ -16,6 +18,7 @@ migrate = Migrate(app, db)
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://oladapsy:1234@localhost/co2db"
 """ initialize the app with the extension"""
 db.init_app(app)
+CORS(app)
 
 
 @app.route('/', strict_slashes=False)
@@ -29,6 +32,19 @@ def get_co2_records():
     """ Returns the last three co2 records"""
     records = CO2Record.query.order_by(CO2Record.date.desc()).limit(3).all()
     return jsonify([{
+        'id': record.id,
+        'date': record.date,
+        'cycle': record.cycle,
+        'trend': record.trend
+    } for record in records])
+
+
+@app.route('/api/co2/records/7limit', strict_slashes=False, methods=['GET'])
+def get_co2_records_7days():
+    """ Returns the last seven days co2 records"""
+    records = CO2Record.query.order_by(CO2Record.date.desc()).limit(7).all()
+    return jsonify([{
+        'id': record.id,
         'date': record.date,
         'cycle': record.cycle,
         'trend': record.trend
@@ -39,9 +55,7 @@ def get_co2_records():
 def get_co2_today_cycle_value():
     """ Returns the cycle value of co2 today"""
     records = CO2Record.query.order_by(CO2Record.date.desc()).limit(1).all()
-    return jsonify([{
-        'cycle': record.cycle,
-    } for record in records])
+    return jsonify({'cycle': float(records[0].cycle)})
 
 
 @app.route('/api/co2/records/range/<start_date>/<end_date>', methods=['GET'])
@@ -126,21 +140,47 @@ def comapre_co2_records(date1, date2):
     if not record1 or not record2:
         return jsonify({'error': 'One or both dates not found in the database'}
                        ), 404
-    return jsonify({
-        'Date1': {
+    return jsonify([
+        {
             'date': record1.date,
             'cycle': record1.cycle,
             'trend': record1.trend
         },
-        'Date2': {
+        {
             'date': record2.date,
             'cycle': record2.cycle,
             'trend': record2.trend
             }
-        })
+        ])
 
 
-@app.route('/co2', strict_slashes=False, methods=['POST'])
+@app.route('/api/co2/compare/today/lastYear', methods=['GET'])
+def comiaipre_co2_records():
+    """ Fetches co2 records for today and last year"""
+    today = datetime.today().date() - timedelta(days=2)
+    last_year = (today - timedelta(days=366)).strftime('%Y-%m-%d')
+
+    record1 = CO2Record.query.filter_by(date=today).first()
+    record2 = CO2Record.query.filter_by(date=last_year).first()
+
+    if not record1 or not record2:
+        return jsonify({'error': 'One or both dates not found in the database'}
+                       ), 404
+    return jsonify([
+        {
+            'date': record1.date,
+            'cycle': record1.cycle,
+            'trend': record1.trend
+        },
+        {
+            'date': record2.date,
+            'cycle': record2.cycle,
+            'trend': record2.trend
+            }
+        ])
+
+
+@app.route('/co2', strict_slashes=False, methods=['GET'])
 def fetch_co2_data():
     """fetch the daily co2 record"""
     url_half1 = "https://daily-atmosphere-carbon-dioxide-concentration"
