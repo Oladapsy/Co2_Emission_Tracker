@@ -1,1 +1,14 @@
-pip install mysqlclient
+sudo apt update
+sudo apt install mysql-server
+pip install requests
+pip install sqlalchemy
+pip install -U Flask-SQLAlchemy
+# run database
+pip install flask-migrate
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+
+
+# -y or follow prompt carefully
+
