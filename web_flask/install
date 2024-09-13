@@ -8,7 +8,15 @@ pip install flask-migrate
 flask db init
 flask db migrate -m "Initial migration."
 flask db upgrade
+pip install Flask Flask-Migrate Flask-CORS Flask-WTF mysqlclient
+
 
 
 # -y or follow prompt carefully
 
+sudo apt-get install libmariadb-dev
+ pip install Flask-Migrate
+flask db upgrade
+ flask db current
+flask db migrate -m Create co2_record table
+flask db upgrade
