@@ -8,7 +8,7 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>About us</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="contacimage">
-            <img src="images/co2_image_3.png" alt="Contact us image">
+		<img src="{{ url_for('static', filename='images/co2_image_3.png') }}" alt="Contact us image">
         </div>
         <div class="About-description">
             <p class="head">About us</p>
@@ -111,7 +111,7 @@
 
 
                 <div class="card1">
-                    <img src="images/my_image.jpeg" alt="founder">
+			<img src="{{ url_for('static', filename='images/my_image.jpeg') }}" alt="founder">
                     <h3>
                         Oladapo Odedeyi Olayinka
                     </h3>
@@ -162,7 +162,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"> </script>
+    <script "{{ url_for('static', filename='js/main.js') }}"> </script>
 </body>
 
 </html>

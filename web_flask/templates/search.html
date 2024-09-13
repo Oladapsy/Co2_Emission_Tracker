@@ -8,7 +8,7 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Search Co2 record</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                     <p>Search World Carbon Dioxide <span style="color: goldenrod;">(CO<sub>2</sub>)</span> Data</p>
                 </div>
                 <div class="1sectionimage">
-                    <img src="images/co2_image_2.png" alt="co2_image">
+			<img src="{{ url_for('static', filename='images/co2_image_2.png') }}" alt="co2_image">
                 </div>
             </div>
         </section>
@@ -103,18 +103,18 @@
         <div class="testimonial-container">
 
             <div class="card1">
-                <img src="images/image 1.webp" alt="person1">
+		    <img src="{{ url_for('static', filename='images/image_1.webp') }}" alt="person1">
                 <blockquote class="card1Quote">"This is an awesome platform, this helped me with my PHD Project"
                 </blockquote>
                 <cite>- Diana Dove</cite>
             </div>
             <div class="card1">
-                <img src="images/image 2.jpeg" alt="person2">
+		    <img src="{{ url_for('static', filename='images/image_2.jpeg') }}" alt="person2">
                 <blockquote class="card1Quote">"Wonderful Project by this great team"</blockquote>
                 <cite>- Faith Hann</cite>
             </div>
             <div class="card1">
-                <img src="images/image 3.webp" alt="person3">
+		    <img src="{{ url_for('static', filename='images/image_3.webp') }}" alt="person3">
                 <blockquote class="card1Quote">"I love the interface, it is nice and simple to use. i wish i saw
                     this earlier while i
                     was in college"</blockquote>
@@ -161,7 +161,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/search.js"> </script>
+    <script src="{{ url_for('static', filename='js/search.js') }}"> </script>
 
 
 </body>

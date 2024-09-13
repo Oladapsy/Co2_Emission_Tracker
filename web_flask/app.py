@@ -22,9 +22,35 @@ CORS(app)
 
 
 @app.route('/', strict_slashes=False)
+@app.route('/home.html', strict_slashes=False)
+@app.route('/index.html', strict_slashes=False)
+@app.route('/home', strict_slashes=False)
+@app.route('/co2tracker.html', strict_slashes=False)
+@app.route('/co2tracker', strict_slashes=False)
 def index():
     """ the home page of the co2 record"""
     return render_template("index.html")
+
+
+@app.route('/about', strict_slashes=False)
+@app.route('/about.html', strict_slashes=False)
+def about():
+    """ the about page of the co2 record"""
+    return render_template("about.html")
+
+
+@app.route('/contact', strict_slashes=False)
+@app.route('/contact.html', strict_slashes=False)
+def contact():
+    """ the contact page of the co2 record"""
+    return render_template("contact.html")
+
+
+@app.route('/search', strict_slashes=False)
+@app.route('/search.html', strict_slashes=False)
+def search():
+    """ the search page of the co2 record"""
+    return render_template("search.html")
 
 
 @app.route('/api/co2/records/3limit', strict_slashes=False, methods=['GET'])
@@ -225,4 +251,4 @@ def fetch_co2_data():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
