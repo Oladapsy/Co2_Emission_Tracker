@@ -1,0 +1,9 @@
+server {
+    listen 80;
+    server_name co2tracker.deetechwiz.tech;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/Co2_Emission_Tracker/web_flask/app.sock;
+    }
+}
