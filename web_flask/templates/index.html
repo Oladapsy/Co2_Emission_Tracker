@@ -1,1 +1,283 @@
-The Co2 Home page
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Co2 Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="bodyContainer">
+
+    
+    <div class="navbar">
+        <div class="container">
+            <a class="home" href="index.html">Co2Tracker</a>
+            <nav>
+                <ul class="navigation">
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section>
+        <div class="topsection">
+            <div class="sectiontext">
+                <p>World Carbon Dioxide <span style="color: goldenrod;">(CO<sub>2</sub>)</span> Emission Tracker</p>
+            </div>
+            <div class="1sectionimage">
+                <img src="images/co2_image_2.png" alt="co2_image">
+            </div>
+        </div>
+    </section>
+
+    <div class="currentdata">
+        <div class="co2today">
+            <h3>Carbon Dioxide Today</h3>
+        </div>
+        <h1 id="co2TodayCycleValue"></h1>
+    </div>
+
+    <section class="table1">
+        <h3>Rescent CO<sub>2</sub> records</h3>
+        <table class="content-table" id="data-table">
+            <thead>
+                <tr class="tablerow">
+                    <th>Date</th>
+                    <th>Cycle</th>
+                    <th>Trend</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>Today</td>
+                    <td>444ppm</td>
+                    <td>448ppm</td>
+                </tr>
+                <tr>
+                    <td>Yesterday</td>
+                    <td>444ppm</td>
+                    <td>448ppm</td>
+                </tr>
+                <tr>
+                    <td>02-09-2024</td>
+                    <td>444ppm</td>
+                    <td>448ppm</td>
+                </tr> -->
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <section class="table2">
+
+        <h3>One year Comparism</h3>
+        <table class="content-table" id="todayLastYear">
+            <thead>
+                <tr class="tablerow">
+                    <th>Date</th>
+                    <th>Cycle</th>
+                    <th>Trend</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                <td>Today</td>
+                <td>444ppm</td>
+                <td>448ppm</td>
+            </tr>
+            <tr>
+                <td>Last year</td>
+                <td>444ppm</td>
+                <td>448ppm</td>
+            </tr> -->
+            </tbody>
+        </table>
+
+    </section>
+
+    <section class="table3">
+        <p class="heading">Compare Date</p>
+        <div class="inputs">
+            <div>
+                <p style="text-align: center; font-size: 20px; font-weight: 500;">First Date</p>
+                <input type="date" id="firstDate"
+                    style="border-radius:10px; outline: none; border: none; color: #000; background: #D6EFD8; padding: 10px 20px; font-size: 20px;">
+            </div>
+
+            <div>
+                <p style="text-align: center; font-size: 20px; font-weight: 500;">Second Date</p>
+                <input type="date" id="secondDate"
+                    style="border-radius:10px; outline: none; border: none; color: #000; background: #D6EFD8; padding: 10px 20px; font-size: 20px;">
+            </div>
+
+        </div>
+
+        <div class="startfetch"></div>
+        <button class="btn1" id="submitCompareDate">Start Fetch</button>
+        <div class="box" style="margin-bottom: 20px;">
+            <table class="content-table" id="oneYearDataComparismTable">
+                <thead>
+                    <tr class="tablerow">
+                        <th>Date</th>
+                        <th>Cycle</th>
+                        <th>Trend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                    <td>Today</td>
+                    <td>444ppm</td>
+                    <td>448ppm</td>
+                </tr>
+                <tr>
+                    <td>Last year</td>
+                    <td>444ppm</td>
+                    <td>448ppm</td>
+                </tr> -->
+                </tbody>
+            </table>
+
+        </div>
+
+        </div>
+    </section>
+
+    <section class="table2">
+
+        <h3 class="heading">Last 7 days</h3>
+        <table class="content-table" id="sevenDaysDataTable">
+            <thead>
+                <tr class="tablerow">
+                    <th>ID</th>
+                    <th>DATE</th>
+                    <th>CYCLE</th>
+                    <th>TREND</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                <td>1</td>
+                <td>02-03-2014</td>
+                <td>444ppm</td>
+                <td>551pm</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>02-03-2014</td>
+                <td>444ppm</td>
+                <td>552pm</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>02-03-2014</td>
+                <td>444ppm</td>
+                <td>553pm</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>02-03-2014</td>
+                <td>444ppm</td>
+                <td>554pm</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>02-03-2014</td>
+                <td>444ppm</td>
+                <td>555pm</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>02-03-2014</td>
+                <td>444ppm</td>
+                <td>556pm</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>02-03-2014</td>
+                <td>444ppm</td>
+                <td>557pm</td>
+            </tr> -->
+            </tbody>
+        </table>
+    </section>
+
+    <div style="max-width: 1000px; margin: 20px auto;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <section class="testimonials-section">
+        <div class="testmonial-content">
+            <p class="testimonial-header">Testimonials</p>
+            <p class="testimonial-paragraph">Read What Others Have To Say</p>
+        </div>
+        <div class="testimonial-container">
+            
+            <div class="card1">
+                <img src="images/image 1.webp" alt="person1">
+                <blockquote class="card1Quote">"This is an awesome platform, this helped me with my PHD Project"</blockquote>
+                <cite>- Diana Dove</cite>
+            </div>
+            <div class="card1">
+                <img src="images/image 2.jpeg" alt="person2">
+                <blockquote class="card1Quote">"Wonderful Project by this great team"</blockquote>
+                <cite>- Faith Hann</cite>
+                
+            </div>
+            <div class="card1">
+                <img src="images/image 3.webp" alt="person3">
+                <blockquote class="card1Quote">"I love the interface, it is nice and simple to use. i wish i saw this earlier while i
+                    was in college"</blockquote>
+                <cite>- James Adams</cite>
+            </div>
+        </div>
+    </section>
+</div>
+
+    <footer>
+        <div class="footerContainer">
+            <div class="footericon">
+                <ul class="navigation">
+                    <a href="index.html">C0<sub>2</sub>Tracker</a>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="socialicons">
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <div class="footerbottom">
+                <p class="policy">Privacy: this web application utilizes an external API to fetch daily C0<sub>2</sub>
+                    records, providing
+                    accurate and up-to-date data for tracking and analysis
+                </p>
+                <p>Copyright &copy;2024; Designed by <span class="designer">Oladapo Odedeyi Olayinka</span></p>
+            </div>
+        </div>
+        <div class="footerBorder">
+
+        </div>
+    </footer>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"> </script>
+</body>
+
+</html>
