@@ -1,0 +1,16 @@
+[Unit]
+Description=Gunicorn instance to serve my Co2tracker app
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/Co2_Emission_Tracker/web_flask
+ExecStart=/home/ubuntu/.local/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app
+#additional data
+Restart=on-failure
+TimeoutStartSec=300
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
