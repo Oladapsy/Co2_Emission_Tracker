@@ -7,7 +7,7 @@ document.getElementById('submitDateRange').addEventListener('click', function ()
     const range2Value = document.getElementById('endDate');
     const range2 = range2Value.value;
 
-    const url = `http://co2tracker.deetechwiz.tech/api/co2/records/range/${range1}/${range2}`;
+    const url = `https://co2tracker.deetechwiz.tech/api/co2/records/range/${range1}/${range2}`;
 
     console.log(range1, range2, 'range 1 and 2')
     // Use date1Value and date2Value here
@@ -60,7 +60,7 @@ document.getElementById('submitDateRange').addEventListener('click', function ()
     const range2Value = document.getElementById('endDate');
     const range2 = range2Value.value;
 
-    const url = `http://co2tracker.deetechwiz.tech/api/co2/records/range/${range1}/${range2}`;
+    const url = `https://co2tracker.deetechwiz.tech/api/co2/records/range/${range1}/${range2}`;
 
     fetch(url)
     .then(response => response.json())

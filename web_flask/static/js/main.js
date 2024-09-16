@@ -1,7 +1,7 @@
 /*fetch('http://54.162.232.135:5000/api/co2/TodayCycleValue') */
 async function fetchCo2dailyValue() {
     try {
-        const response = await fetch('http://co2tracker.deetechwiz.tech/api/co2/TodayCycleValue');
+        const response = await fetch('https://co2tracker.deetechwiz.tech/api/co2/TodayCycleValue');
         console.log(response, 'C02')
         if (!response.ok) {
             alert("not available")
@@ -20,7 +20,7 @@ fetchCo2dailyValue();
 
 async function fetchCo23daysValue() {
     try {
-        const res = await fetch('http://co2tracker.deetechwiz.tech/api/co2/records/3limit')
+        const res = await fetch('https://co2tracker.deetechwiz.tech/api/co2/records/3limit')
         if (!res.ok) {
             alert("last 3 days data not available")
         }
@@ -58,7 +58,7 @@ fetchCo23daysValue();
 
 async function fetchCo2TodayLastYear() {
     try {
-        const res = await fetch('http://co2tracker.deetechwiz.tech/api/co2/compare/today/lastYear')
+        const res = await fetch('https://co2tracker.deetechwiz.tech/api/co2/compare/today/lastYear')
         if (!res.ok) {
             alert("current date data not available so cant be compared with last year data")
         }
@@ -96,7 +96,7 @@ fetchCo2TodayLastYear();
 
 async function fetchCo27daysValue() {
     try {
-        const res = await fetch('http://co2tracker.deetechwiz.tech/api/co2/records/7limit')
+        const res = await fetch('https://co2tracker.deetechwiz.tech/api/co2/records/7limit')
         if (!res.ok) {
             alert("last 7 days data not available")
         }
@@ -144,7 +144,7 @@ fetchCo27daysValue();
 
 
 
-fetch('http://co2tracker.deetechwiz.tech/api/co2/records/7limit')
+fetch('https://co2tracker.deetechwiz.tech/api/co2/records/7limit')
     .then(response => response.json())
     .then(data => {
         data.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -201,7 +201,7 @@ document.getElementById('submitCompareDate').addEventListener('click', function 
     const date2Value = document.getElementById('secondDate');
     const date2 = date2Value.value;
 
-    const url = `http://co2tracker.deetechwiz.tech/api/co2/compare/${date1}/${date2}`;
+    const url = `https://co2tracker.deetechwiz.tech/api/co2/compare/${date1}/${date2}`;
 
     console.log(date1, date2, 'dates 1 and 2')
     // Use date1Value and date2Value here
